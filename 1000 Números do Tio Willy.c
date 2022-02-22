@@ -5,7 +5,9 @@
 int main(){
     int v[1000], n;
     int count = 0, countI = 0;
-    do{   
+    do{  
+        count = 0;
+        countI = 0;
         for (int i = 0; i < 1000; i++) {
             scanf("%d", &v[i]);
             countI++;
@@ -22,10 +24,6 @@ int main(){
         printf("%d appeared %d times\n", n, count);
         if(v[countI-1] == -1)
             break;
-        count = 0;
-        countI = 0;
     }while(v[countI -1 ] != -1);
-
-
     return 0;
 }
