@@ -1,1 +1,70 @@
+#include <stdio.h>
+#include <string.h>
+int comp(char v[]){
+    char aux[5] = "SAIR";
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if(v[i] == aux[i]){
+            count++;
+        }
+    }
+    if(count == 4){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
+
+
+int main(){
+    struct cadastro{
+        char nome[51];
+        int senha;
+        char situacao;
+    };
+    struct cadastro cad[100];
+        
+    int count = 0;
+    int login;
+    
+    
+    for (int i = 0; i < 100; i++) {
+        setbuf(stdin, NULL);
+        fgets(cad[i].nome, 51, stdin);
+        setbuf(stdin, NULL);
+        printf("%d\n", comp(cad[i].nome));
+        if(comp(cad[i].nome) == 0){
+            break;
+        }
+        scanf("%d", &cad[i].senha);
+        setbuf(stdin, NULL);
+        scanf("%c", &cad[i].situacao);
+        setbuf(stdin, NULL);
+        count++;
+    }
+    do{
+        scanf("%d", &login);
+        if(login == -1){
+            break;
+        }
+        for (int i = 0; i < 100; i++) {
+            if(cad[i].senha == login){
+                if(cad[i].situacao == 'P'){
+                    printf("%s, seja bem-vindo(a)!\n", cad[i].nome);
+                }
+                else if(cad[i].situacao == 'F'){
+                    printf("Não está esquecendo de algo, %s? Procure a recepção!\n", cad[i].nome);
+                }
+                else{
+                printf("Seja bem-vindo(a)! Procure a recepção!\n");
+                }
+            }
+            
+        }
+    }while(login != -1);
+    
+    
+    return 0;
+}
 
