@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-
-
 int main(){
     int v[1000], n;
     int count = 0, countI = 0;
